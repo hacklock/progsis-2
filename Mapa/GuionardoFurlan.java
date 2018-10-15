@@ -1,7 +1,7 @@
 package progsis2.cesumar;
 
 import robocode.*;
-//import java.awt.Color;
+import java.util.Random;
 
 // API help : http://robocode.sourceforge.net/docs/robocode/robocode/Robot.html
 
@@ -9,6 +9,10 @@ import robocode.*;
  * GuionardoFurlan - a robot by Guionardo Furlan
  */
 public class GuionardoFurlan extends Robot {
+
+	// Variável que indica que foi encontrado um robo no scanner e 
+	private int Cacando = 0;
+
 	/**
 	 * run: GuionardoFurlan's default behavior
 	 */
@@ -24,41 +28,103 @@ public class GuionardoFurlan extends Robot {
 		// 3. Altere a cor da bala.
 		setBulletColor(Color.red);
 
+		// Inicializa gerador de números randômicos
+		Random gerador = new Random();
+
 		// Robot main loop
 		while (true) {
-			// Replace the next 4 lines with any behavior you would like
-			ahead(100);
-			turnGunRight(360);
-			back(100);
-			turnGunRight(360);
+			if (getOthers() == 0) {
+				Comemorar();
+			} else {
+				if (Cacando > 0) {
+					// se estiver caçando, após um OnScannedRobot
+					Cacando--;
+					andarPraFrente(100);
+				} else {
+					// Distância aleatória entre 10 e 100
+					int distancia = 10 + gerador.nextInt(90);
+					if (gerador.nextBoolean()) {
+						// true = para frente
+						andarPraFrente(distancia);
+					} else {
+						// false = para trás
+						andarPraTras(distancia);
+					}
+
+					// Mudança de direção entre 0 e 180 graus
+					int bearing = gerador.nextInt(180);
+					if (gerador.nextBoolean()) {
+						// true = para esquerda
+						turnLeft(bearing);
+					} else {
+						// false = para direita
+						turnRight(bearing);
+					}
+				}
+
+				// Girar a arma 360 graus para ativar o scanner
+				turnGunRight(360);
+			}
 		}
 	}
 
 	/**
-	 * onScannedRobot: O que fazer quando visualizar outro robô
-	 * 9.
+	 * Comemora quando não há nenhum oponente
 	 */
-	public void onScannedRobot(ScannedRobotEvent e) {
-		// Replace the next line with any behavior you would like
-		fire(1);
+	public void Comemorar() {
+		int quanto = 100;
+		andarPraFrente(quanto);
+		virarPraDireita();
 	}
 
 	/**
-	 * onHitByBullet: O que fazer quando atingido por outro robô
-	 * 9. 
+	 * onScannedRobot: O que fazer quando visualizar outro robô 9.a
+	 */
+	public void onScannedRobot(ScannedRobotEvent e) {
+		if (getGunHeat() == 0) {
+			// Arma quente, não pode atirar
+			// Fugir na direção contrária
+			turnLeft(180 - e.getBearing());
+		} else {
+			atirar(1);
+			turnLeft(e.getBearing());
+			Cacando = 4; // Caça na direção do robô por 4 rodadas
+		}
+	}
+
+	/**
+	 * onHitByBullet: O que fazer quando atingido por outro robô 9.b
 	 */
 	public void onHitByBullet(HitByBulletEvent e) {
-		// Replace the next line with any behavior you would like
+		// Virar 90 graus a esquerda do tiro e voltar
+		turnLeft(90 - e.getBearing());
 		back(10);
 	}
 
 	/**
-	 * onHitWall: O que fazer quando bater em uma parede
-	 * 9. 
+	 * onHitWall: O que fazer quando bater em uma parede 9.c
 	 */
 	public void onHitWall(HitWallEvent e) {
-		// Replace the next line with any behavior you would like
 		back(20);
+		turnLeft(90 - e.getBearing());
+	}
+
+	/**
+	 * OnHitRobot: o que fazer quando bater em outro robô 9.d
+	 * 
+	 * @param event
+	 */
+	public void OnHitRobot(HitRobotEvent event) {
+
+	}
+
+	/**
+	 * OnWin: o que fazer quando o robô ganhar a rodada
+	 * 
+	 * @param event
+	 */
+	public void onWin(WinEvent event) {
+
 	}
 
 	/**
