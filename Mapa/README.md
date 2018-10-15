@@ -16,14 +16,14 @@ Para este MAPA, pede-se:
 * [x] 2. Altere a cor do seu robô.
 * [x] 3. Altere a cor da bala.
 * [ ] 4. Sobrescreva o método run() de Robot para codificar a estratégia de jogo do seu robô.
-* [ ] 5. Crie alguns métodos apelidos para métodos herdados para facilitar a leitura do seu código.
-   * [ ] a. virarPraDireita()  – deve ser apelido para turnRight(90)
-   * [ ] b. virarPraEsquerda()  – deve ser apelido para turnLeft(90)
-   * [ ] c. virarPraTras() – deve ser apelido para turnLeft(180) ou turnRight(180), escolha.
-   * [ ] d. andarPraFrente(double quantosPixels)  – deve ser apelido para ahead(double quantosPixels).
-   * [ ] e. andarPraTras(double quantosPixels)  – deve ser apelido para back(double quantosPixels)
-   * [ ] f. atirar(double energiaDaBala) – deve ser apelido para fire(double power)
-   * [ ] g. parar() – deve ser apelido para stop()
+* [x] 5. Crie alguns métodos apelidos para métodos herdados para facilitar a leitura do seu código.
+  * [x] a. virarPraDireita()  – deve ser apelido para turnRight(90)
+  * [x] b. virarPraEsquerda()  – deve ser apelido para turnLeft(90)
+  * [x] c. virarPraTras() – deve ser apelido para turnLeft(180) ou turnRight(180), escolha.
+  * [x] d. andarPraFrente(double quantosPixels)  – deve ser apelido para ahead(double quantosPixels).
+  * [x] e. andarPraTras(double quantosPixels)  – deve ser apelido para back(double quantosPixels)
+  * [x] f. atirar(double energiaDaBala) – deve ser apelido para fire(double power)
+  * [x] g. parar() – deve ser apelido para stop()
 * [ ] 6. Faça chamadas dos métodos apelidos que foram criados para programar a estratégia do seu robô. Também podem ser utilizados outros métodos herdados da superclasse.
 * [ ] 7. Utilize pelo menos uma vez a instrução de decisão if na sua estratégia.
 * [ ] 8. Utilize pelo menos uma vez uma constante definida na classe Rules. Exemplos: Rules.MIN_BULLET_POWER, Rules.MAX_BULLET_POWER ou qualquer outra.
