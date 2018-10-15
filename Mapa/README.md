@@ -12,8 +12,8 @@ O Robocode é um jogo de programação, de código aberto, cujo objetivo é dese
 
 Para este MAPA, pede-se:
 
-1. Construa a classe para seu robô estendendo a classe Robot disponível no pacote robocode.
-2. Altere a cor do seu robô.
+1. [x] Construa a classe para seu robô estendendo a classe Robot disponível no pacote robocode.
+2. [x] Altere a cor do seu robô.
 3. Altere a cor da bala.
 4. Sobrescreva o método run() de Robot para codificar a estratégia de jogo do seu robô.
 5. Crie alguns métodos apelidos para métodos herdados para facilitar a leitura do seu código.
