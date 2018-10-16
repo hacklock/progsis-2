@@ -1,7 +1,8 @@
-package progsis2.cesumar;
+package progsis2;
 
 import robocode.*;
 import java.util.Random;
+import java.awt.Color;
 
 // API help : http://robocode.sourceforge.net/docs/robocode/robocode/Robot.html
 
@@ -10,61 +11,54 @@ import java.util.Random;
  */
 public class GuionardoFurlan extends Robot {
 
-	// Variável que indica que foi encontrado um robo no scanner e 
+	// Variável que indica que foi encontrado um robo no scanner e
 	private int Cacando = 0;
+
+	// Inicializa gerador de números randômicos
+	Random gerador = new Random();
 
 	/**
 	 * run: GuionardoFurlan's default behavior
 	 */
 	public void run() {
-		// Initialization of the robot should be put here
-
-		// After trying out your robot, try uncommenting the import at the top,
-		// and the next line:
-
 		// 2. Altere a cor do seu robô.
 		setBodyColor(Color.green);
 
 		// 3. Altere a cor da bala.
 		setBulletColor(Color.red);
 
-		// Inicializa gerador de números randômicos
-		Random gerador = new Random();
-
 		// Robot main loop
 		while (true) {
-			if (getOthers() == 0) {
-				Comemorar();
-			} else {
-				if (Cacando > 0) {
-					// se estiver caçando, após um OnScannedRobot
-					Cacando--;
-					andarPraFrente(100);
-				} else {
-					// Distância aleatória entre 10 e 100
-					int distancia = 10 + gerador.nextInt(90);
-					if (gerador.nextBoolean()) {
-						// true = para frente
-						andarPraFrente(distancia);
-					} else {
-						// false = para trás
-						andarPraTras(distancia);
-					}
 
-					// Mudança de direção entre 0 e 180 graus
-					int bearing = gerador.nextInt(180);
-					if (gerador.nextBoolean()) {
-						// true = para esquerda
-						turnLeft(bearing);
-					} else {
-						// false = para direita
-						turnRight(bearing);
-					}
+			if (Cacando > 0) {
+				// se estiver caçando, após um OnScannedRobot
+				Cacando--;
+				andarPraFrente(100);
+			} else {
+				// Distância aleatória entre 10 e 100
+				int distancia = 10 + gerador.nextInt(90);
+				if (gerador.nextBoolean()) {
+					// true = para frente
+					andarPraFrente(distancia);
+				} else {
+					// false = para trás
+					andarPraTras(distancia);
 				}
 
-				// Girar a arma 360 graus para ativar o scanner
-				turnGunRight(360);
+				// Mudança de direção entre 0 e 180 graus
+				int bearing = gerador.nextInt(180);
+				if (gerador.nextBoolean()) {
+					// true = para esquerda
+					turnLeft(bearing);
+				} else {
+					// false = para direita
+					turnRight(bearing);
+				}
 			}
+
+			// Girar a arma 360 graus para ativar o scanner
+			turnGunRight(360);
+
 		}
 	}
 

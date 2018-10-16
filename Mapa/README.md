@@ -26,14 +26,14 @@ Para este MAPA, pede-se:
   * [x] g. parar() – deve ser apelido para stop()
 * [ ] 6. Faça chamadas dos métodos apelidos que foram criados para programar a estratégia do seu robô. Também podem ser utilizados outros métodos herdados da superclasse.
 * [x] 7. Utilize pelo menos uma vez a instrução de decisão if na sua estratégia.
-* [ ] 8. Utilize pelo menos uma vez uma constante definida na classe Rules. Exemplos: Rules.MIN_BULLET_POWER, Rules.MAX_BULLET_POWER ou qualquer outra.
+* [x] 8. Utilize pelo menos uma vez uma constante definida na classe Rules. Exemplos: Rules.MIN_BULLET_POWER, Rules.MAX_BULLET_POWER ou qualquer outra.
 * [ ] 9. Sobrescreva os métodos
   * [x] a. onScannedRobot
   * [x] b. onHitByBullet
   * [x] c. onHitWall
-  * [ ] d. onHitRobot
-  * [ ] e. onWin.
-* [ ] 10. Coloque seu robô em uma batalha contra algum outro (ou contra ele mesmo). Seu robô não precisa ganhar a batalha, mas precisa participar do jogo andando, virando, vasculhando o outro robô, atirando e desencalhando caso bata em alguma parede. Seu robô será testado em uma batalha na correção deste Mapa.
+  * [x] d. onHitRobot
+  * [x] e. onWin.
+* [x] 10. Coloque seu robô em uma batalha contra algum outro (ou contra ele mesmo). Seu robô não precisa ganhar a batalha, mas precisa participar do jogo andando, virando, vasculhando o outro robô, atirando e desencalhando caso bata em alguma parede. Seu robô será testado em uma batalha na correção deste Mapa.
 
 Dois vídeos complementares a este material foram disponibilizados no Youtube para mostrá-lo como configurar o Robocode no Netbeans:
 
